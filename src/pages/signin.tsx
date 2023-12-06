@@ -54,17 +54,24 @@ function SignIn() {
                             }
                             else {
                                 setErrMsg(false)
-                                const res = await axios.post(`${BASE_URL}/admin/login`, {
+                                try{
+                                const res = await axios.post(`${BASE_URL}/api/admin/signin`, {
                                     username,
                                     password,
                                 })
                                 const token = res.data.token
-                                localStorage.setItem('token', token)
+                                localStorage.setItem('token',"berarer " +token)
                                 setUser({
                                     isLoading: false,
                                     userEmail: username
                                 })
                                 router.push('/courses')
+                                
+                            }
+                            catch(err)
+                            {
+                                console.log(err)
+                            }
                             }
 
                         }}

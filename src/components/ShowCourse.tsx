@@ -1,4 +1,4 @@
-export function ShowCourse({ course }) {
+export function ShowCourse({ course }:{course:any}) {
     return (
         <div style={{ width: 300, position: 'relative', overflow: 'hidden', cursor: 'pointer', alignItems: 'center' }} className="card">
             <img src={course.imageLink} alt="Image"

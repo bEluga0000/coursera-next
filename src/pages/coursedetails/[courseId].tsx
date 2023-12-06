@@ -17,9 +17,10 @@ function CourseDetail() {
     useEffect(() => {
         const getCourseDetails = async () => {
             try {
-                const res = await axios.get(`${BASE_URL}/admin/courses/${courseId}`, {
+                const res = await axios.get(`${BASE_URL}/api/admin/course/${courseId}`, {
+                    method:'GET',
                     headers: {
-                        'authorisation': 'bearer ' + localStorage.getItem('token')
+                        'authorization':localStorage.getItem('token')
                     }
                 })
                 if (res.data.course) {
@@ -114,7 +115,7 @@ function UpdateCourse() {
                         fullWidth={true} />
                     <Button variant="contained"
                         onClick={async () => {
-                            axios.put(`${BASE_URL}/admin/courses/${courseid}` ,
+                            axios.put(`${BASE_URL}/api/admin/course/${courseid}` ,
                                 {
                                     title: title,
                                     description: description,
@@ -124,8 +125,7 @@ function UpdateCourse() {
                                 },
                                 {
                                     headers: {
-                                        'Content-Type': 'application/json',
-                                        'authorisation': 'bearer ' + localStorage.getItem('token')
+                                        'authorisation': localStorage.getItem('token')
                                     }
                                 }
 

@@ -59,12 +59,12 @@ function SignUp() {
                                 setErrMsg(true)
                             }
                             else {
-                                const res = await axios.post(`${BASE_URL}/admin/signup`, {
+                                const res = await axios.post(`${BASE_URL}/api/admin/signup`, {
                                     username,
                                     password
                                 })
                                 const token = res.data.token
-                                localStorage.setItem('token', token)
+                                localStorage.setItem('token',"bearer "+ token)
                                 setUser({
                                     isLoading: false,
                                     userEmail: username

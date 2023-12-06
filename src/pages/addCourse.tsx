@@ -58,7 +58,7 @@ function AddCourse() {
                     <br />
                     <Button variant="contained"
                         onClick={async () => {
-                            await axios.post(`${BASE_URL}/admin/courses`, {
+                            await axios.post(`${BASE_URL}/api/admin/addcourse`, {
                                 title,
                                 description,
                                 imageLink: image,
@@ -67,7 +67,7 @@ function AddCourse() {
                             },
                                 {
                                     headers: {
-                                        'authorisation': 'bearer ' + localStorage.getItem('token')
+                                        'authorization': localStorage.getItem('token')
                                     }
                                 })
                                 router.push('/courses')

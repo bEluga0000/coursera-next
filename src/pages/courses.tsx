@@ -12,9 +12,9 @@ function Courses() {
     const [courses, setCourses] = useState([])
     useEffect(() => {
         const getCourses = async () => {
-            const res = await axios.get(`${BASE_URL}/admin/courses`, {
+            const res = await axios.get(`${BASE_URL}/api/admin/courses`, {
                 headers: {
-                    'authorisation': 'bearer ' + localStorage.getItem('token')
+                    'authorization':localStorage.getItem('token')
                 }
             })
             setCourses(res.data.courses)
@@ -60,9 +60,9 @@ export function ShowCourse({ course }: { course: Course }) {
         padding: '15px',
         position: 'absolute',
         zIndex: 10,
-        bottom: '0', // Adjust bottom property when hovered
-        transform: isHovered ? 'translateY(0)' : 'translateY(39%)', // Adjust the transform property
-        backgroundColor: isHovered ? 'rgba(255,255,255,0.705)' : 'transparent', // Adjust background color when hovered
+        bottom: '0', 
+        transform: isHovered ? 'translateY(0)' : 'translateY(39%)', 
+        backgroundColor: isHovered ? 'rgba(255,255,255,0.705)' : 'transparent', 
         width: '100%',
         transition: '0.3s',
     };

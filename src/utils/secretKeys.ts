@@ -1,0 +1,1 @@
+export const adminsecretKey = "your_Key_IS_safe_Now"

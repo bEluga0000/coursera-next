@@ -10,11 +10,10 @@ function InitUser()
     const init = async () => {
       try
       {
-        const res = await axios.get(`${BASE_URL}/admin/me`,
+        const res = await axios.get(`${BASE_URL}/api/admin/me`,
           {
             headers: {
-              'Content-Type': 'application/json',
-              'authorisation': 'bearer ' + localStorage.getItem('token')
+              'authorization': localStorage.getItem('token')
             }
           })
           if(res.data.username)
